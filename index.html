@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stack transitions</title>
+  <link href='https://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+  <div class="l-container">
+    <button class="cbtn">Toggle</button>
+
+    <div class="cbars">
+      <span class="cbars-bar">1</span>
+      <span class="cbars-bar">2</span>
+      <span class="cbars-bar">3</span>
+      <span class="cbars-bar">4</span>
+      <span class="cbars-bar">5</span>
+    </div>
+  </div>
+
+  <script>
+    var btn = document.querySelector('.cbtn');
+    var bars = document.querySelectorAll('.cbars-bar');
+
+    btn.addEventListener('click', function() {
+      console.log('TOGGLE');
+      for (var i = 0; i < bars.length; i++) {
+        bars[i].classList.toggle('is-expanded');
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+@import 'reset';
+@import 'base';
+@import 'layout';
+
+/* Modules */
+$clr-shadow: #666;
+
+button {
+  padding: 0 25px;
+  margin-bottom: 10px;
+  background: linear-gradient(#090e38, #2534B6);
+  outline: none;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 1px 1px 3px $clr-shadow;
+  text-transform: uppercase;
+  font-size: 24px;
+  line-height: 34px;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  color: #ffffff;
+  text-shadow: 1px 1px 5px $clr-shadow;
+  transition: box-shadow 0.3s, text-shadow 0.3s;
+}
+button:hover {
+  box-shadow: 2px 2px 8px $clr-shadow;
+  text-shadow: 0px 0px 2px $clr-shadow;
+}
+button:active {
+  box-shadow: 0px 0px 1px $clr-shadow;
+  text-shadow: 3px 3px 5px $clr-shadow;
+}
+
+$clr-cbar: #25b7a8;
+
+.cbars {
+  padding: 12px;
+  border: solid 4px $clr-cbar;
+}
+
+.cbars-bar {
+  display: block;
+  margin-bottom: 12px;
+  padding: 2px 0;
+  width: 24px;
+  color: #fff;
+  background-color: $clr-cbar;
+  text-align-last: center;
+  transition: width 0.5s;
+}
+.cbars-bar:last-child {
+  margin-bottom: 0;
+}
+
+.is-expanded {
+  width: 100%;
+}
+
+//.cbars-bar {
+//  &:nth-child(1) {transition-delay: 0.4s;}
+//  &:nth-child(2) {transition-delay: 0.3s;}
+//  &:nth-child(3) {transition-delay: 0.2s;}
+//  &:nth-child(4) {transition-delay: 0.1s;}
+//  &:nth-child(5) {transition-delay: 0s;}
+//}
+
+//.cbars-bar.is-expanded {
+//  &:nth-child(1) {transition-delay: 0s;}
+//  &:nth-child(2) {transition-delay: 0.1s;}
+//  &:nth-child(3) {transition-delay: 0.2s;}
+//  &:nth-child(4) {transition-delay: 0.3s;}
+//  &:nth-child(5) {transition-delay: 0.4s;}
+//}
+
+$n: 5;
+$delay: 0.1;
+
+@for $i from 1 through $n {
+  $in: $delay * ($i - 1);
+  $out: $delay * ($n - $i);
+
+  .cbars-bar:nth-child(#{$i}) {
+    transition-delay: #{$out}s;
+  }
+  .cbars-bar.is-expanded:nth-child(#{$i}) {
+    transition-delay: #{$in}s;
+  }
+}
